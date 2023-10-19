@@ -24,7 +24,7 @@ defineProps({
                         <div class="mt-10 space-y-1">
                             <template v-if="notes.length">
                                 <div v-for="note in notes" :key="note.id">
-                                    {{ note.id }}. {{ note.body }}
+                                    <Link :href="route('notes.show', note)">{{ note.id }}. {{ note.body }}</Link>
                                 </div>
                             </template>
                             <div v-else>No notes yet</div>

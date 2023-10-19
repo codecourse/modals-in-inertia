@@ -3,6 +3,7 @@
 use App\Http\Controllers\ExampleModalController;
 use App\Http\Controllers\Notes\NoteCreateController;
 use App\Http\Controllers\Notes\NoteIndexController;
+use App\Http\Controllers\Notes\NoteShowController;
 use App\Http\Controllers\Notes\NoteStoreController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -44,5 +45,6 @@ Route::get('/modals/example', ExampleModalController::class)->name('modals.examp
 Route::get('/notes', NoteIndexController::class)->name('notes');
 Route::get('/notes/create', NoteCreateController::class)->name('notes.create');
 Route::post('/notes', NoteStoreController::class)->name('notes.store');
+Route::get('/notes/{note}', NoteShowController::class)->name('notes.show');
 
 require __DIR__.'/auth.php';
