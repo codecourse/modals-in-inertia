@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExampleModalController;
+use App\Http\Controllers\Notes\NoteCreateController;
 use App\Http\Controllers\Notes\NoteIndexController;
 use App\Http\Controllers\Notes\NoteStoreController;
 use App\Http\Controllers\ProfileController;
@@ -41,6 +42,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/modals/example', ExampleModalController::class)->name('modals.example');
 
 Route::get('/notes', NoteIndexController::class)->name('notes');
+Route::get('/notes/create', NoteCreateController::class)->name('notes.create');
 Route::post('/notes', NoteStoreController::class)->name('notes.store');
 
 require __DIR__.'/auth.php';
