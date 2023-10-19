@@ -1,3 +1,9 @@
+<script setup>
+import Modal from '@/Components/Modals/Modal.vue'
+</script>
+
 <template>
-    This is a modal
+    <Modal>
+        This is a modal
+    </Modal>
 </template>
