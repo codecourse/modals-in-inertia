@@ -2,13 +2,14 @@
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessui/vue'
 import { useModal } from 'momentum-modal'
 
-const { show, close } = useModal()
+const { show, close, redirect } = useModal()
 </script>
 
 <template>
     <TransitionRoot appear as="template" :show="show">
         <Dialog as="div" class="relative z-50" @close="close">
             <TransitionChild
+                @after-leave="redirect"
                 as="template"
                 enter="duration-300 ease-out"
                 enter-from="opacity-0"
