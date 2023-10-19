@@ -2,12 +2,12 @@
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessui/vue'
 import { useModal } from 'momentum-modal'
 
-const { show } = useModal()
+const { show, close } = useModal()
 </script>
 
 <template>
     <TransitionRoot appear as="template" :show="show">
-        <Dialog as="div">
+        <Dialog as="div" class="relative z-50" @close="close">
             <TransitionChild
                 as="template"
                 enter="duration-300 ease-out"
@@ -32,7 +32,9 @@ const { show } = useModal()
                         leave-to="opacity-0 scale-95"
                     >
                         <DialogPanel class="bg-white p-12 text-left align-middle rounded-xl shadow-xl w-full max-w-md">
-                            <slot />
+                            <slot :close="close" />
+
+                            <!-- <button v-on:click="close">Close modal</button> -->
                         </DialogPanel>
                     </TransitionChild>
                 </div>
